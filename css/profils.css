@@ -248,15 +248,15 @@ select {
     }
     
     .top-icons {
-        gap: 8px; /* Espacement minimal */
+        gap: 8px;
     }
     
     .top-icons a {
-        font-size: 12px; /* Texte très petit */
-        padding: 4px 8px; /* Padding minimal */
+        font-size: 12px; 
+        padding: 4px 8px;
     }
     .top-icons a:last-child {
-        font-size: 16px; /* Dernière icône très petite */
+        font-size: 16px; 
         padding: 0 6px;
     }
 }
