@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.top-nav {
+    background-color: #002f86;
+    color: white;
+    font-size: 14px;
+}
+
+.top-nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.form-section {
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+margin: 20px 0; /* Espacement optionnel */
+}
+
+.fichier a {
+    text-decoration: underline;
+    color: #004aad;
+}
+
+h2{
+    color:#002f86;
+    text-align:center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    }
+
+.logo img {
+    height: 48px;
+    width: auto;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+.retour{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+p>strong{
+    color:black;
+    font-size: 0.9rem;
+}
+.carte-projet {
+background-color: white;
+padding: 11px;
+margin-bottom: 30px;    
+}
+.carte-projet h3 {
+    font-weight: bold;
+    color:#002f86; 
+    margin-bottom:10px;
+    
+}
+.badges {
+margin-bottom: 20px;
+}
+.badges .badge {
+margin-right: 10px;
+font-size: 0.9rem;
+}
+.section-titre {
+font-weight: bold;
+margin-top: 20px;
+margin-bottom: 5px;
+color:#002f86;
+}
+.mb-3{
+color:#002f86;
+font-weight: bold;
+}
+/* ------------------ Responsive Design ------------------ */
+
+@media (max-width: 992px) {
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .top-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .retour {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .carte-projet h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 42px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .carte-projet {
+        padding: 10px;
+    }
+
+    .section-titre {
+        font-size: 1rem;
+    }
+
+    .badges .badge {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+
+    .form-label,
+    .form-control {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .retour {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .form-section {
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .carte-projet h3 {
+        font-size: 1rem;
+    }
+
+    .section-titre {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+    }
+
+    .form-control {
+        font-size: 0.8rem;
+    }
+
+    .top-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .badges {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .badges .badge {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}

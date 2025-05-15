@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.top-nav {
+    background-color: #002f86;
+    color: white;
+    font-size: 14px;
+}
+
+.top-nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.statut {
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: black;
+}
+
+h2{color:#002f86; text-align:center;}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+}
+.retour{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-primary.custom-blue {
+    background-color: #002f86;
+    color: white;
+    border-color: #002f86;
+}
+.btn-detail{
+    background-color: #95a5a6;
+    color: white;
+}
+
+/* .validé { background-color: #4caf50; }
+.refusé { background-color: #f44336; }
+.en-attente { background-color: #ff9800; } */
+
+@media (max-width: 992px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .top-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .form-select,
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .form-select,
+    .form-control {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+    }
+
+    h2.mb-4 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .btn.btn-primary,
+    .btn.btn-secondary,
+    .btn.btn-danger {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-nav h3 {
+        font-size: 1rem;
+    }
+
+    .form-select,
+    .form-control {
+        font-size: 0.8rem;
+    }
+
+    .table th,
+    .table td {
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+
+    .btn.btn-sm {
+        font-size: 0.75rem;
+    }
+
+    .btn-detail {
+        width: 100%;
+    }
+}
