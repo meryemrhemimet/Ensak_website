@@ -56,8 +56,8 @@ body {
 }
 
 .top-icons a[target="_blank"] img {
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     transition: transform 0.3s ease;
 }
 
