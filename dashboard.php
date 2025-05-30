@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once 'db.php';
+require_once 'cnx.php';
 
 $annees = ['1ère année', '2ème année', '3ème année', '4ème année', '5ème année'];
 $filières = [
@@ -42,7 +42,7 @@ function getProjets($annee = null, $filiere = null) {
 <head>
     <meta charset="UTF-8">
     <title>Tableau de bord - Projets</title>
-    <link rel="stylesheet" href="etudiants.css">
+    <link rel="stylesheet" href="css/etudiants.css">
     <style>
         
     .filiere-grid {

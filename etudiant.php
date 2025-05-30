@@ -4,10 +4,9 @@ session_start();
 require_once 'cnx.php';
 
 if (!isset($_SESSION['id_etudiant'])) {
-    // Simuler une connexion pour le développement
-    $_SESSION['id_etudiant'] = 1; // À remplacer par un vrai système de login plus tard
+    header('Location: connect_etudiant.php');
+    exit();
 }
-
 
 $db = new Connexion();
 $pdo = $db->getConnexion();

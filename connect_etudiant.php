@@ -1,6 +1,6 @@
 
 <?php
-require_once 'config.php';
+require_once 'cnx.php';
 
 // Initialisation des variables
 $email = $password = '';
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
     <link rel="stylesheet" type="text/css" href="css1/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css1/bootstrap-utilities.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css1/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/0c03620f7c.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
