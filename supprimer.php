@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once 'cnx.php';
 
 if (!isset($_GET['id'])) {
     die("ID d'étudiant non spécifié.");

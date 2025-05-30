@@ -1,6 +1,6 @@
 <?php
 session_start();
-// require_once 'auth/check_admin.php'; // Active si nécessaire
+require_once 'auth/check_admin.php'; // Active si nécessaire
 ?>
 
 <!DOCTYPE html>

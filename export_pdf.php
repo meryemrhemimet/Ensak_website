@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'cnx.php';
 require('fpdf/fpdf.php'); // assure-toi que fpdf est bien installé
 
 $query = $db->query("SELECT p.titre, p.description, p.date_creation, p.statut,

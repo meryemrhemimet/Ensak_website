@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once 'cnx.php';
 
 // Nombre total de projets
 $nb_total = $db->query("SELECT COUNT(*) FROM projets")->fetchColumn();

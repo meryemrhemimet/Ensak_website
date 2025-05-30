@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once 'cnx.php';
 // require_once 'auth/check_admin.php'; // active si tu veux restreindre l'accès
 
 $utilisateurs = $db->query("SELECT id, nom, prenom, email FROM etudiants ORDER BY nom")->fetchAll(PDO::FETCH_ASSOC);

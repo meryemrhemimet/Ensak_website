@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'cnx.php';
 
 header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename=projets_ensa.csv');
