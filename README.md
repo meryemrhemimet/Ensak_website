@@ -1,59 +1,241 @@
-This project uses a MySQL database named projet, created and managed using phpMyAdmin. The database is connected to the PHP backend using:
+#  ENSA Student Project Management System
 
-require_once 'cnx.php';
+A web-based application designed to simplify the submission, management, tracking, and evaluation of student projects at the **École Nationale des Sciences Appliquées (ENSA)**.
 
-->Tables Overview
-The database consists of the following core tables:
+The platform provides a centralized space for managing student projects, monitoring their status, handling project-related documents, and accessing administrative information through a user-friendly interface.
 
-etudiants
-Stores student information.
+## 📌 Table of Contents
 
-CREATE TABLE etudiants (
-    id_etudiant INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL,
-    prenom VARCHAR(50) NOT NULL,
-    annee_etude VARCHAR(20) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    filiere VARCHAR(100) NOT NULL
-);
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technologies](#-technologies-used)
+- [Project Structure](#-project-structure)
+- [Prerequisites](#-prerequisites)
+- [Installation and Setup](#-installation-and-setup)
+- [Database Configuration](#-database-configuration)
+- [How to Use](#-how-to-use)
+- [Future Improvements](#-future-improvements)
+- [Author](#-author)
 
-projets
-Contains projects submitted by students.
+## 🚀 Overview
 
-CREATE TABLE projets (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titre VARCHAR(255),
-    description TEXT,
-    categorie VARCHAR(100),
-    type_projet ENUM('stage', 'module'),
-    id_etudiant INT,
-    date_soumission DATETIME DEFAULT CURRENT_TIMESTAMP,
-    validé BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (id_etudiant) REFERENCES etudiants(id)
-);
+Managing academic projects can involve multiple students, supervisors, submissions, documents, and administrative tasks. This application aims to centralize these activities in one web platform.
 
-livrables
-Stores uploaded files related to each project.
+It provides functionalities for organizing student projects, managing users, following project information, and facilitating access to project-related resources.
 
-CREATE TABLE livrables (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_projet INT,
-    nom_fichier VARCHAR(255),
-    type_fichier VARCHAR(50),
-    chemin_fichier VARCHAR(255),
-    FOREIGN KEY (id_projet) REFERENCES projets(id)
-);
+The project was developed using PHP for server-side logic, MySQL for data storage, and HTML/CSS for the user interface.
 
-commentaires
-Stores comments on projects from students, professors, or supervisors.
+## ✨ Features
 
-CREATE TABLE commentaires (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    id_projet INT(11) NOT NULL,
-    contenu TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-    date_commentaire DATETIME DEFAULT CURRENT_TIMESTAMP,
-    auteur_type ENUM('professeur', 'encadrant', 'etudiant') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-    auteur_id INT(11) NOT NULL,
-    FOREIGN KEY (id_projet) REFERENCES projets(id) ON DELETE CASCADE
-);
+### 📁 Project Management
+- View and manage student projects.
+- Access detailed project information.
+- Track project statuses and submission information.
+- Manage project-related documents and deliverables.
+- Add and manage comments associated with projects.
+
+### 👥 Student and User Management
+- Access student information.
+- Manage user records through the administrative interface.
+- Organize project information by student and academic program.
+
+### 📊 Statistics and Reporting
+- Access a statistics dashboard.
+- View project-related information and indicators.
+- Export project information to PDF and Excel formats.
+
+### 📄 Document Management
+- Upload and store project-related files.
+- Download available project documents.
+- Organize deliverables associated with projects.
+
+### 🔐 Authentication and Navigation
+- Provide login, registration, and logout pages.
+- Separate application pages for different user workflows.
+- Navigate between project management, statistics, and user administration.
+
+*Note: The available functionality depends on the implementation and configuration of each module.*
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| PHP | Backend logic and server-side processing |
+| MySQL | Relational database management |
+| PDO | Database access and SQL operations |
+| HTML5 | Web page structure |
+| CSS3 | Styling and layout |
+| JavaScript | Client-side interactions |
+| Bootstrap | Responsive interface components |
+| Git and GitHub | Version control and project hosting |
+
+## 📂 Project Structure
+
+```text
+projet_ensak/
+├── css/
+│   ├── dashboard.css
+│   ├── details.css
+│   ├── etudiants.css
+│   ├── profils.css
+│   ├── projets.css
+│   ├── style.css
+│   ├── update.css
+│   └── views.css
+├── image/
+│   ├── logo.png
+│   ├── logo_ensa.png
+│   └── ...
+├── uploads/
+│   └── Project-related documents
+├── cnx.php
+├── connect.php
+├── connexion.php
+├── inscription.php
+├── dashboard.php
+├── projets.php
+├── projet_details.php
+├── statistiques.php
+├── gestion_utilisateurs.php
+├── export_pdf.php
+├── export_excel.php
+├── download.php
+├── logout.php
+├── index.php
+├── .gitignore
+└── README.md
+```
+
+## ⚙️ Prerequisites
+
+Before running the application, make sure you have installed:
+
+- **PHP 8.x** or a compatible PHP version.
+- **MySQL** or MariaDB.
+- **Apache** web server.
+- **XAMPP** or an equivalent local development environment.
+- A web browser.
+
+XAMPP is a convenient option for running PHP and MySQL locally on Windows.
+
+## 💻 Installation and Setup
+
+### 1. Clone the repository
+
+Open a terminal and run:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+Replace `YOUR_USERNAME` and `YOUR_REPOSITORY` with your GitHub details.
+
+### 2. Move the project into your web server directory
+
+For XAMPP, place the project folder inside:
+
+```text
+C:\xampp\htdocs\projet_ensak
+```
+
+### 3. Start the required services
+
+Open the XAMPP Control Panel and start:
+
+- Apache
+- MySQL
+
+Make sure the MySQL port matches your database configuration.
+
+### 4. Create the database
+
+Open phpMyAdmin:
+
+```text
+http://localhost/phpmyadmin
+```
+
+Create a database named:
+
+```sql
+CREATE DATABASE projet
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+```
+
+Import the project's database schema and create the tables required by the application.
+
+**Important:** The database schema must be available before the application can run correctly. Include a verified SQL export, such as `database/schema.sql`, in the repository to make setup reproducible.
+
+### 5. Configure the database connection
+
+Open `cnx.php` and verify the connection settings for your local environment.
+
+The current configuration uses:
+
+```php
+$host = 'localhost';
+$dbname = 'projet';
+$username = 'root';
+$password = '';
+$port = '3308';
+```
+
+Adjust the credentials and port to match your MySQL installation. Use environment variables or another secure configuration method for production deployments rather than committing credentials.
+
+Ensure that all PHP files use a consistent database connection.
+
+### 6. Launch the application
+
+Open your browser and navigate to:
+
+```text
+http://localhost/projet_ensak/
+```
+
+If the application does not load correctly, check the database configuration, required PHP extensions, Apache error logs, and the database tables.
+
+## 🧭 How to Use
+
+1. Start the application in your local development environment.
+2. Open the appropriate login or registration page.
+3. Navigate to the project management section.
+4. Browse project details and available documents.
+5. Use the administrative pages to access user information and statistics.
+6. Export supported project information when needed.
+
+The exact actions available depend on the account type, implemented permissions, and database configuration.
+
+## 🔮 Future Improvements
+
+Potential improvements include:
+
+- Implementing consistent role-based access control for students, professors, supervisors, and administrators.
+- Strengthening authentication and authorization.
+- Improving database consistency and validation.
+- Adding automated email notifications for project status changes.
+- Developing advanced search, filtering, and pagination.
+- Adding automated tests and deployment workflows.
+- Improving responsive design and accessibility.
+- Documenting the database schema and providing sample data for easier setup.
+
+## 🔒 Security and Privacy
+
+- Never commit database passwords, API keys, or other secrets.
+- Do not publish private student documents or personal information.
+- Validate uploaded files and restrict permitted file types and sizes.
+- Protect sensitive pages and file downloads with appropriate authorization checks.
+- Configure production credentials securely.
+
+## 👩‍💻 Author
+
+**Project:** ENSA Student Project Management System
+
+**Institution:** École Nationale des Sciences Appliquées (ENSA)
+
+Developed as an academic web development project.
+
+---
+
+⭐ If you find this project useful, feel free to explore the source code and suggest improvements.
+
